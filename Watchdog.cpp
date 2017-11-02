@@ -128,11 +128,9 @@ int main()
 
       int UnixTimeLED = ReadUnixtime(UnixtimeLED, UnixtimeMAX);
       int DiffTimeLED = AktuallTime - UnixTimeLED;
-      printf("%i\n", UnixTimeLED);
 
       int UnixTimeTCS = ReadUnixtime(UnixtimeTCS, UnixtimeMAX);
       int DiffTimeTCS = AktuallTime - UnixTimeTCS;
-      printf("%i\n", UnixTimeTCS);
 
       if ((strcmp ("NOK",pingOUT) == 0) && (PingWD == 1 || resetWLAN == 1)){
         counterReboot ++;

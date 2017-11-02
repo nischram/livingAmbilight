@@ -18,6 +18,16 @@
 #define LED_COUNT                   36                      // Anzahl der LED's
 #define BRIGHTNESS                  220                     // Helligkeit 0-255 100= ideal < 80 niedrige Werte werden nicht angeziegt > 150 zu hell
 #define maxValue                    220                     // Maximale Helligkeit der Anzeigen 50-255 100= ideal
+#define ledOffset                   1.0                     // Offset Helligkeit RGB-ColorSensor 0.1 - 4.0
+#define roOffset                    1.0                     // Offset Rot RGB-ColorSensor
+#define grOffset                    0.6                     // Offset Grün RGB-ColorSensor
+#define blOffset                    0.3                     // Offset Blau RGB-ColorSensor
+
+//#######################################
+// TCS34725
+#define bus                         "/dev/i2c-1"            // Pfad zum I2C Treiber
+// LED Pin für TCS34725
+#define ledPin                      7                       // wiringPi Pin Nummer vom GPIO
 
 //#######################################
 // sendEmail Parameter
@@ -31,7 +41,7 @@
 //#######################################
 //Watchdog Einstellungen
 //Zeitdifferenz zur aktuellen Zeit bis zur Watchdog aktivierung (in Sekunden)
-#define WDdiff                      300                     // Minimalwert 240
+#define WDdiff                      120                     // in Sekunden
 //Zeitinterval für die Abfragen des Watchdog (in Sekunden)
 #define sleepTimeWD                 120
 //Anzahl Programm Neustarts bis zum Reboot
@@ -49,10 +59,6 @@
 #define PingOn                      1                       // 1= Ping zu Router aktiv
 #define resetWLAN                   1                       // 1= Reset für WLAN bei Pingfehler
 #define PingWD                      1                       // 1= Reboot nach dem 3. Pingfehler
-
-//#######################################
-// LED Pin für TCS34725
-#define ledPin                      7                       // wiringPi Pin Nummer vom GPIO
 
 //#######################################
 

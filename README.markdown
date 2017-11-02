@@ -1,5 +1,5 @@
 # LivingColors to LED WS2811/WS2812
-[Stand: V1.00 31.10.2017](https://github.com/nischram/livingAmbilight#changelog)
+[Stand: V1.01 02.11.2017](https://github.com/nischram/livingAmbilight#changelog)
 
 Hier beschreibe ich, wie du einen LED-Streifen mit der gleichen Lichtfabe einer LED Lampe ansteuern kannst.
 
@@ -44,8 +44,11 @@ pi@raspberrypi ~/livingAmbilight $  make
 ```
 
 ### Wichtig   
+#### 1.
 Damit die SD-Karte des Raspberry Pi nicht übermäßig beansprucht wird, nutzt ich ein RAMDisk im Arbeitsspeicher. Die Einrichtung ist unten im Kapitel __[RAMDisk](https://github.com/nischram/livingAmbilight#ramdisk)__ beschrieben.
-
+#### 2.
+Für den ColorSensor muss die I2C-Bus Installation vorgenommen werden.
+[https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c)
 
 ### Applikation starten
 Jetzt kann die Applikation für Tests gestartet werden.
@@ -285,6 +288,11 @@ Für Wünsche, Fehler und Anregungen bitte ein Issue erstellen.
 V1.00 31.10.2017 Repository neu erstellt   
 
 #### Versionen
+V1.01 02.11.2017 Verbesserungen
+- I2C-Bus hat oft abgebrochen
+- Offset für LED
+- Diverse veränderungen
+
 V1.00 31.10.2017 Repository neu erstellt
 - Repository neu erstellt
 

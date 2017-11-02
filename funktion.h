@@ -1,6 +1,94 @@
 #ifndef __FUNKTION_H_
 #define __FUNKTION_H_
 
+ws2811_t ledstring =
+{
+    .freq = TARGET_FREQ,
+    .dmanum = DMA,
+    .channel =
+    {
+        [0] =
+        {
+            .gpionum = GPIO_PIN,
+            .count = LED_COUNT,
+            .invert = 0,
+            .brightness = BRIGHTNESS,
+            .strip_type = STRIP_TYPE,
+        },
+        [1] =
+        {
+            .gpionum = 0,
+            .count = 0,
+            .invert = 0,
+            .brightness = 0,
+        },
+    },
+};
+
+ws2811_led_t dotcolors[] =
+{
+    0x00200000,  // [0] = red
+    0x00201000,  // [1] = orange
+    0x00202000,  // [2] = yellow
+    0x00002000,  // [3] = green
+    0x00002010,  // [4] = cyan
+    0x00002020,  // [5] = lightblue
+    0x00000020,  // [6] = blue
+    0x00100010,  // [7] = purple
+    0x00200010,  // [8] = pink
+};
+
+static void ctrl_c_handler(int signum)
+{
+	(void)(signum);
+		running = 0;
+		loop = 0;
+}
+
+static void setup_handlers(void)
+{
+    struct sigaction sa =
+    {
+        .sa_handler = ctrl_c_handler,
+    };
+
+    sigaction(SIGINT, &sa, NULL);
+    sigaction(SIGTERM, &sa, NULL);
+}
+
+// Min and max value of LED
+int minMax(int color)
+{
+  if (color > 255)
+    color = 255;
+  if (color > maxValue)
+    color = maxValue;
+  if (color < 0)
+    color = 0;
+
+    return color;
+}
+
+// Clear all LED
+int clearAll()
+{
+  int led_c;
+  for (led_c = 0; led_c < LED_COUNT; led_c++) {
+    ledstring.channel[0].leds[led_c] = 0x00000000;
+  }
+  return 1;
+}
+
+int rgbColor(int ro, int gr, int bl)
+{
+  unsigned long rgbHEX;
+  ro = minMax(ro);
+  gr = minMax(gr);
+  bl = minMax(bl);
+  rgbHEX = (ro << 16) + (gr << 8) + bl;
+  printf("Red: %i  Green: %i  Blue: %i  LED: %#08x \n", ro, gr, bl, rgbHEX);
+  return rgbHEX;
+}
 
 //Dateien schreiben mit übergebenem Pfad (z.B. Sommer/Winterzeit)
 void writeData(char filePath[100], char write[100]){

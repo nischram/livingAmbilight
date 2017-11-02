@@ -31,6 +31,9 @@ Link für Link
 [https://www.adafruit.com/product/1334](https://www.adafruit.com/product/1334)   
 [https://github.com/ControlEverythingCommunity/TCS34725](https://github.com/ControlEverythingCommunity/TCS34725)
 
+#### I2C Installation
+[https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c)   
+
 #### LED WS2811/WS2812
 [https://www.amazon.de/dp/B01MQYW4RR/ref=pe_3044161_189395811_TE_3p_dp_1](https://www.amazon.de/dp/B01MQYW4RR/ref=pe_3044161_189395811_TE_3p_dp_1)      
 [https://github.com/jgarff/rpi_ws281x](https://github.com/jgarff/rpi_ws281x)   
