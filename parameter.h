@@ -24,6 +24,10 @@
 #define blOffset                    0.3                     // Offset Blau RGB-ColorSensor
 
 //#######################################
+// Debug Option
+#define debugUse                    0                       // Einige Debug-Zeilen sind schon eingefügt, aktiv=1 deaktiv=0
+
+//#######################################
 // TCS34725
 #define bus                         "/dev/i2c-1"            // Pfad zum I2C Treiber
 // LED Pin für TCS34725

@@ -266,7 +266,7 @@ void checkDEBUG()
     strftime (CLOCK,20,"%H:%M:%S",now);
     if (strcmp ("00:00:00",CLOCK) == 0){
       strftime (OUT,100,"DEBUG_%Y-%m-%d",now);
-      snprintf (batch, (size_t)128, "cp /mnt/RAMDisk/DEBUG.txt /home/pi/E3dcGui/DEBUG/%s.txt", OUT);
+      snprintf (batch, (size_t)128, "cp /mnt/RAMDisk/DEBUG.txt /home/pi/livingAmbilight/DEBUG/%s.txt", OUT);
       system(batch);
       system("rm /mnt/RAMDisk/DEBUG.txt");
     }

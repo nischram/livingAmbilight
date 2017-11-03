@@ -64,7 +64,13 @@ int ro, gr, bl;
 int main(void)
 {
   int unixCounter = 60;
+  char OUT[100], version[100], datum[100];
   makeUnixtime();
+  DEBUG("\n### Neustart ###\n");
+  readVersion (version, datum);
+  snprintf(OUT, (size_t)100, "Version: %s  Datum: %s\n", version, datum);
+  printf("%s", OUT);
+  DEBUG(OUT);
 
   // LED on TCS34725
   ledColorSensor(LOW);
@@ -87,6 +93,13 @@ int main(void)
   // Create I2C bus
   int fp;
   while (running) {
+    // Starttime DEBUG
+    time_t currentTime = time(NULL);
+    struct tm *now;
+    time( &currentTime );
+    now = localtime( &currentTime );
+    strftime (OUT,100,"I2C Init %H:%M:%S ",now);
+    DEBUG(OUT);
     // init ColorSensor
     fp = initColorSensor(fp);
 
@@ -112,9 +125,12 @@ int main(void)
         unixCounter ++;
         // looptime
         sleep(1);
+        // DEBUG.txt speichern um 00:00 Uhr in DEBUG/"datum".txt
+        checkDEBUG();
       }
     }
   	close(fp);
+    DEBUG("\n");
   }
 
   if (clear_on_exit) {

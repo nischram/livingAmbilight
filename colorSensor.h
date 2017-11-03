@@ -25,6 +25,7 @@ int initColorSensor(int fp)
 		printf("Failed to open the bus. \n");
 		// Error output
 		errnum = errno;
+		DEBUGint(errnum);
 		fprintf(stderr, "Value of errno: %d\n", errno);
 		perror("Error printed by perror");
 		fprintf(stderr, "Error opening file: %s\n", strerror( errnum ));

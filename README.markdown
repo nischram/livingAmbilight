@@ -1,5 +1,5 @@
 # LivingColors to LED WS2811/WS2812
-[Stand: V1.01 02.11.2017](https://github.com/nischram/livingAmbilight#changelog)
+[Stand: V1.02 03.11.2017](https://github.com/nischram/livingAmbilight#changelog)
 
 Hier beschreibe ich, wie du einen LED-Streifen mit der gleichen Lichtfabe einer LED Lampe ansteuern kannst.
 
@@ -288,6 +288,9 @@ Für Wünsche, Fehler und Anregungen bitte ein Issue erstellen.
 V1.00 31.10.2017 Repository neu erstellt   
 
 #### Versionen
+V1.02 03.11.2017 Verbesserungen
+- DEBUG integriert
+
 V1.01 02.11.2017 Verbesserungen
 - I2C-Bus hat oft abgebrochen
 - Offset für LED
